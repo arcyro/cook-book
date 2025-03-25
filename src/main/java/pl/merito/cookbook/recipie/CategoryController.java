@@ -21,4 +21,16 @@ public class CategoryController {
                 categoryRepository.findAll());
         return "category/list";
     }
+
+    @RequestMapping("/add")
+    public String addForm(Model model) {
+        model.addAttribute("category", new Category());
+        return "category/add";
+    }
+
+    @RequestMapping("/save")
+    public String save(Category category) {
+        categoryRepository.save(category);
+        return "redirect:/category/list";
+    }  // add form
 }
