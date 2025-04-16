@@ -18,10 +18,12 @@ public class CategoryApiController {
     public Iterable<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
+
     @GetMapping("/{id}")
     public Category getCategoryById(@PathVariable Long id) {
         return categoryRepository.findById(id).orElse(null);
     }
+
     @PostMapping()
     public Category addCategory(@RequestBody Category category) {
         return categoryRepository.save(category);
